@@ -20,6 +20,9 @@ import "bytes"
 // of the suffix array sequences.
 func LongestCommonSubstring(strs ...[]byte) []byte {
 	strslen := len(strs)
+	if strslen == 1 {
+		return strs[0]
+	}
 	suffixes := make([][]int, strslen)
 	for i, str := range strs {
 		suffixes[i] = Qsufsort(str) // stdlib's qsufsort
