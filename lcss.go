@@ -20,9 +20,6 @@ import "bytes"
 // of the suffix array sequences.
 func LongestCommonSubstring(strs ...[]byte) []byte {
 	strslen := len(strs)
-	if strslen == 0 {
-		return []byte{}
-	}
 	if strslen == 1 {
 		return strs[0]
 	}
@@ -192,7 +189,6 @@ func (cn *charNode) Remove(str []byte) {
 func (cn charNode) LongestCommonPrefixLength() int {
 	var result int
 	for head := cn; len(head.children) == 1 && head.children[0].used >= head.used; head = head.children[0] {
-
 		result++
 	}
 	return result
